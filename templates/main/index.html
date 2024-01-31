@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load main_tags %}
 {% block content %}
 
 <!-- start banner Area -->
@@ -10,9 +11,7 @@
                 <h1 class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".6s">Im<span>a</span>ges <br />
                     mat<span>t</span>er</h1>
                 <div class="designation mb-25 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                    <p>Manner before lively wholly am mr indeed expect one every merry his yet has her. You mistress get
-                        dashwood
-                        children off manner to other</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
                 <a href="#" class="primary-btn" data-text="Explore More">
                     <span>E</span>
@@ -34,9 +33,12 @@
             </div>
             <div class="social-icons">
                 <ul>
-                    <li><a href="index.html"><i class="ti-facebook"></i>facebook</a></li>
-                    <li><a href="index.html"><i class="ti-twitter"></i>twitter</a></li>
-                    <li><a href="index.html"><i class="ti-instagram"></i>ti-instagram</a></li>
+                    <li><a href="https://www.facebook.com/roozbeh.mahmoodzadeh" target=”_blank”><i
+                                class="ti-facebook"></i>facebook</a></li>
+                    <li><a href="https://twitter.com/roozbehrm" target=”_blank”><i class="ti-twitter"></i>twitter</a>
+                    </li>
+                    <li><a href="https://www.instagram.com/roozbehrm/" target=”_blank”><i
+                                class="ti-instagram"></i>instagram</a></li>
                 </ul>
             </div>
         </div>
@@ -49,26 +51,23 @@
     <div class="container">
         <div class="row align-items-center justify-content-start">
             <div class="col-lg-5 about-left">
-                <img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt="">
+                <img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt="nikkon D300 camera">
             </div>
             <div class="offset-lg-1 col-lg-5 col-md-12 about-right">
-                <div class="section-title">
-                    <h2 class="mb-4">Lets <br />
-                        Introduce About Myself</h2>
+                <div class="section-title text-left">
+                    <h2><span>About</span> ProShoot</h2><br>
                 </div>
                 <div class="mb-35 wow fadeIn" data-wow-duration=".8s" data-wow-delay=".3s">
                     <p>
-                        Up my excuse to suffer ladies though or. Bachelor possible out marianne directly confined
-                        relation as on he.
+                        Best and latest photographing techs at Proshoot photography
                     </p>
-                    <p>Lose john poor same it case do year we. Full how way even the si extremely nor furniture fat
-                        questions now
-                        provision one incommod preserved. Dose john poor same it case do year go we. Full how way even
-                        the sigh.
-                        Extremely nor furniture fat one questions now provision then doing for.
+                    <p>
+                        At Proshoot Photography we offer a range of services such as wedding photography, industrial
+                        photography, and
+                        fashion photography. we also have a blog and provide our services at a good price.
                     </p>
                 </div>
-                <a href="#" class="primary-btn" data-text="Read More">
+                <a href="{% url 'main:about' %}" class="primary-btn" data-text="Read More">
                     <span>R</span>
                     <span>e</span>
                     <span>a</span>
@@ -92,7 +91,7 @@
             <div class="col-lg-12">
                 <div class="section-title text-center">
                     <h3>Our Services</h3>
-                    <h2><span>What We Offer</span></h2>
+                    <h2><span>What ProShoot Offers</span></h2>
                 </div>
             </div>
         </div>
@@ -103,8 +102,7 @@
                         <i class="flaticon-shirt"></i>
                         <h4 class="ml-3">Fashion Photography</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
 
@@ -114,8 +112,7 @@
                         <i class="flaticon-water"></i>
                         <h4 class="ml-3">Nature Photgraphy</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
 
@@ -125,8 +122,7 @@
                         <i class="flaticon-content"></i>
                         <h4 class="ml-3">Event Coverage</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
 
@@ -136,8 +132,7 @@
                         <i class="flaticon-art"></i>
                         <h4 class="ml-3">Property Tours</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
 
@@ -147,8 +142,7 @@
                         <i class="flaticon-button"></i>
                         <h4 class="ml-3">Multimedia Services</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
 
@@ -156,10 +150,9 @@
                 <div class="single-service wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s">
                     <div class="d-flex align-items-center mb-3">
                         <i class="flaticon-ring"></i>
-                        <h4 class="ml-3">Weeding Photography</h4>
+                        <h4 class="ml-3">Wedding Photography</h4>
                     </div>
-                    <p>An so vulgar to on points wanted. No rapturous resolving continued household northward gay he it
-                        otherwise</p>
+                    <p>Best and latest photographing techs at Proshoot photography</p>
                 </div>
             </div>
         </div>
@@ -195,13 +188,14 @@
                     <div class="single-work">
                         <div class="relative">
                             <div class="thumb">
-                                <img class="image img-fluid" src="{% static 'img/work/w1.jpg' %}" alt="">
+                                <img class="image img-fluid" src="{% static 'img/work/w1.jpg' %}"
+                                    alt="grey wolf under snow">
                             </div>
                             <div class="middle">
                                 <h4>2D Vinyl Design</h4>
                                 <div class="cat">Client Project</div>
                             </div>
-                            <a class="overlay" href="project-details.html"></a>
+                            <a class="overlay" href="#"></a>
                         </div>
                     </div>
                 </div>
@@ -210,13 +204,14 @@
                     <div class="single-work">
                         <div class="relative">
                             <div class="thumb">
-                                <img class="image img-fluid" src="{% static 'img/work/w2.jpg' %}" alt="">
+                                <img class="image img-fluid" src="{% static 'img/work/w2.jpg' %}"
+                                    alt="biking in the snow on the mountain">
                             </div>
                             <div class="middle">
                                 <h4>2D Vinyl Design</h4>
                                 <div class="cat">Client Project</div>
                             </div>
-                            <a class="overlay" href="project-details.html"></a>
+                            <a class="overlay" href="#"></a>
                         </div>
                     </div>
                 </div>
@@ -225,13 +220,14 @@
                     <div class="single-work">
                         <div class="relative">
                             <div class="thumb">
-                                <img class="image img-fluid" src="{% static 'img/work/w3.jpg' %}" alt="">
+                                <img class="image img-fluid" src="{% static 'img/work/w3.jpg' %}"
+                                    alt="boats on the sea">
                             </div>
                             <div class="middle">
                                 <h4>2D Vinyl Design</h4>
                                 <div class="cat">Client Project</div>
                             </div>
-                            <a class="overlay" href="project-details.html"></a>
+                            <a class="overlay" href="#"></a>
                         </div>
                     </div>
                 </div>
@@ -240,19 +236,20 @@
                     <div class="single-work">
                         <div class="relative">
                             <div class="thumb">
-                                <img class="image img-fluid" src="{% static 'img/work/w4.jpg' %}" alt="">
+                                <img class="image img-fluid" src="{% static 'img/work/w4.jpg' %}"
+                                    alt="a fashion man with sunglasess">
                             </div>
                             <div class="middle">
                                 <h4>2D Vinyl Design</h4>
                                 <div class="cat">Client Project</div>
                             </div>
-                            <a class="overlay" href="project-details.html"></a>
+                            <a class="overlay" href="#"></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 text-center grid-item col-md-12 all creative wow fadeIn" data-wow-duration="2s">
-                    <a href="#" class="primary-btn" data-text="View More">
+                    <a href="{% url 'main:projects' %}" class="primary-btn" data-text="View More">
                         <span>V</span>
                         <span>i</span>
                         <span>e</span>
@@ -286,9 +283,9 @@
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="pricing_item">
-                    <h3 class="p_title">Weeding</h3>
+                    <h3 class="p_title">Wedding</h3>
                     <p class="p_criteria">Attend only first day</p>
-                    <h1 class="p_price">$46.00</h1>
+                    <h3 class="p_price">$46.00</h3>
                     <div class="p_list">
                         <ul>
                             <li><span class="ti-check"></span> Unlimited Entrance</li>
@@ -315,7 +312,7 @@
                 <div class="pricing_item">
                     <h3 class="p_title">Studio</h3>
                     <p class="p_criteria">Attend only first day</p>
-                    <h1 class="p_price">$76.00</h1>
+                    <h3 class="p_price">$76.00</h3>
                     <div class="p_list">
                         <ul>
                             <li><span class="ti-check"></span> Unlimited Entrance</li>
@@ -342,7 +339,7 @@
                 <div class="pricing_item">
                     <h3 class="p_title">Fashion</h3>
                     <p class="p_criteria">Attend only first day</p>
-                    <h1 class="p_price">$96.00</h1>
+                    <h4 class="p_price">$96.00</h4>
                     <div class="p_list">
                         <ul>
                             <li><span class="ti-check"></span> Unlimited Entrance</li>
@@ -370,118 +367,11 @@
 <!-- End Pricing Area -->
 
 <!-- Start Blog Area -->
-<section class="blog-area section-gap-top">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title text-center">
-                    <h3>Our Blog</h3>
-                    <h2><span>Latest</span> Good Story</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="single-recent-blog mb-lg-3 mb-5">
-                    <div class="thumb">
-                        <img class="f-img img-fluid mx-auto" src="{% static 'img/b1.jpg' %}" alt="">
-                    </div>
-                    <a href="#">
-                        <h4 class="mt-4 mb-3">Pictures of the year 2018, from the migrant caravan to Serena do
-                            Williams Harbor dangerous</h4>
-                    </a>
-                    <div class="mb-3 bottom d-flex justify-content-between align-items-center flex-wrap">
-                        <div class="meta">
-                            <span class="ti-user mr-1"></span> Admin
-                            <span class="ti-calendar mr-1"></span> 20/09/2018
-                        </div>
-                    </div>
-                    <p>
-                        Unfeeling agreeable suffering it on smallness newspaper be. So come must
-                        time no as. Do on unpleasing possession as of unreserved. Yet joy exquisite
-                        put sometimes enjoyment perpetual now. Behind lovers eat having length horses
-                        vanity say had its damn owes meter exquisite.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="single-recent-blog mb-lg-3 mb-5">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-5">
-                            <div class="thumb">
-                                <img class="f-img img-fluid mx-auto" src="{% static 'img/b2.jpg' %}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 mt-md-0 mt-3">
-                            <a href="#">
-                                <h4 class="mb-lg-3 mb-2">Spirits in the sky over Northern Ireland lake</h4>
-                            </a>
-                            <div class="bottom d-flex justify-content-between align-items-center flex-wrap mb-3">
-                                <div class="meta">
-                                    <span class="ti-user mr-1"></span> Admin
-                                    <span class="ti-calendar mr-1"></span> 20/09/2018
-                                </div>
-                            </div>
-                            <p>
-                                Behind lovers eat having length horses vanity say had its mega.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="single-recent-blog mb-lg-3 mb-5">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-5">
-                            <div class="thumb">
-                                <img class="f-img img-fluid mx-auto" src="{% static 'img/b3.jpg' %}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 mt-md-0 mt-3">
-                            <a href="#">
-                                <h4 class="mb-lg-3 mb-2">Spirits in the sky over Northern Ireland lake</h4>
-                            </a>
-                            <div class="bottom d-flex justify-content-between align-items-center flex-wrap mb-3">
-                                <div class="meta">
-                                    <span class="ti-user mr-1"></span> Admin
-                                    <span class="ti-calendar mr-1"></span> 20/09/2018
-                                </div>
-                            </div>
-                            <p>
-                                Behind lovers eat having length horses vanity say had its mega.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="single-recent-blog mb-lg-3 mb-5">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-5">
-                            <div class="thumb">
-                                <img class="f-img img-fluid mx-auto" src="{% static 'img/b4.jpg' %}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 mt-md-0 mt-3">
-                            <a href="#">
-                                <h4 class="mb-lg-3 mb-2">Spirits in the sky over Northern Ireland lake</h4>
-                            </a>
-                            <div class="bottom d-flex justify-content-between align-items-center flex-wrap mb-3">
-                                <div class="meta">
-                                    <span class="ti-user mr-1"></span> Admin
-                                    <span class="ti-calendar mr-1"></span> 20/09/2018
-                                </div>
-                            </div>
-                            <p>
-                                Behind lovers eat having length horses vanity say had its mega.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
+{% if request.user.is_authenticated %}
+    {% latest_posts loggedin=True %}
+{% else %}
+    {% latest_posts %}
+{% endif %}
 <!-- End Blog Area -->
 
 {% endblock %}

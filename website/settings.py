@@ -11,34 +11,49 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ctzwx5l!0e9(($rupkq9e^50*#&52vt2i0&*z$$(h3xs3oveg)'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'main.apps.MainConfig',
     'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
+    'debug_toolbar',
+    'robots',
+    'django_summernote',
+    'taggit',
+    'captcha',
+    'compressor',
+]
+
+# django compressor settings
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+
+# Debug toolbar settings
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 MIDDLEWARE = [
@@ -49,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'website.urls'
@@ -69,18 +85,23 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'website.wsgi.application'
 
+MESSAGE_TAGS = {
+        messages.DEBUG: 'alert-secondary',
+        messages.INFO: 'alert-info',
+        messages.SUCCESS: 'alert-success',
+        messages.WARNING: 'alert-warning',
+        messages.ERROR: 'alert-danger',
+ }
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# summernote configs
+SUMMERNOTE_THEME = 'bs4'  # Show summernote with Bootstrap4
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
 }
+
+WSGI_APPLICATION = 'website.wsgi.application'
 
 
 # Password validation
@@ -101,6 +122,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# mult captcha admin
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -120,14 +145,25 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = BASE_DIR / 'static'
-MEDIA_ROOT = BASE_DIR / 'media'
+# robots
+ROBOTS_USE_HOST = False
 
-STATICFILES_DIRS = [
-    BASE_DIR /'statics'
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackend']
+
+
+# for password reset
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'mail.roozbehm.ir'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'info@roozbehm.ir'
+EMAIL_HOST_PASSWORD = "xAVc1?tUVl!Q"
+
+

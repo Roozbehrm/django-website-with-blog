@@ -1,4 +1,5 @@
 {% load static %}
+{% load compress %}
 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -11,9 +12,9 @@
 	<!-- Author Meta -->
 	<meta name="author" content="colorlib">
 	<!-- Meta Description -->
-	<meta name="description" content="">
+	<meta name="description" content="Proshoot studio, Creative Photography for industry, wedding, fashion and more, offers the best price for photograpy services with plans that siuts everyone.">
 	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
+	<meta name="keywords" content="Photgraphy, wedding, industrial, Fashion, blog, offer, good, price, Proshoot, images, matter, services, lorem, ipsum, Unlimited, Entrance, studio">
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
@@ -23,6 +24,7 @@
 	<!--
 			CSS
 			============================================= -->
+	{% compress css %}
 	<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
 	<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
 	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -31,6 +33,7 @@
 	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	{% endcompress %}
 </head>
 
 <body>
@@ -46,18 +49,42 @@
 
 	<!-- Start Header Area -->
 	<header id="header">
+		{% include 'message.html' %}
+		<div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-sm-6 col-6 header-top-left">
+                        <ul>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="#">Logged in as {{request.user.username}}</a></li>
+                            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                            {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                            <li><a href="{% url 'accounts:signup' %}">signup</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+				</div>
+			</div>
+		</div>
 		<div class="container main-menu">
 			<div class="row align-items-center d-flex">
 				<div id="logo">
-					<a href="index.html"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
+					<a href="{% url 'main:index' %}"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
 				</div>
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
-						<li class=""><a class="active" href="{% url 'main:index' %}">Home</a></li>
-						<li><a href="{% url 'main:about' %}">About</a></li>
-						<li><a href="projects.html">Projects</a></li>
-						<li><a href="{% url 'blog:index' %}">Blog</a></li>
-					    <li><a href="{% url 'main:contact' %}">Contact</a></li>
+						{% url 'main:index' as home_url %}
+						<li class=""><a class="{% if request.get_full_path == home_url %}active{% endif %}" href="{% url 'main:index' %}">Home</a></li>
+						{% url 'main:about' as about_url %}
+						<li><a class="{% if request.get_full_path == about_url %}active{% endif %}" href="{% url 'main:about' %}">About</a></li>
+						{% url 'main:projects' as projects_url %}
+						<li><a class="{% if request.get_full_path == projects_url %}active{% endif %}" href="{% url 'main:projects' %}">Projects</a></li>
+						{% url 'blog:index' as blog_url %}
+						<li><a class="{% if request.get_full_path == blog_url %}active{% endif %}" href="{% url 'blog:index' %}">Blog</a></li>
+						{% url 'main:contact' as contact_url %}
+					    <li><a class="{% if request.get_full_path == contact_url %}active{% endif %}" href="{% url 'main:contact' %}">Contact</a></li>
+	
 					</ul>
 				</nav>
 			</div>
@@ -70,6 +97,7 @@
     {% block content %}
 
     {% endblock %}
+
 
     <!-- start footer Area -->
 	<footer class="footer-area section-gap">
@@ -88,16 +116,13 @@
 					<div class="single-footer-widget">
 						<h6>Newsletter</h6>
 						<p>Stay update with our latest</p>
-						<div class="" id="mc_embed_signup">
-							<form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
-								<input class="form-control" name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
+						<div class="">
+							<form action="{% url 'main:newsletter' %}" method="post" class="form-inline">
+								{% csrf_token %}
+								<input class="form-control" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'"
 								 required="" type="email">
-								<button class="click-btn btn btn-default"><i class="ti-arrow-right" aria-hidden="true"></i></button>
-								<div style="position: absolute; left: -5000px;">
-									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-								</div>
-								<div class="info"></div>
+								<button  type="submit" class="click-btn btn btn-default"><i class="ti-arrow-right" aria-hidden="true"></i></button>
+								
 							</form>
 						</div>
 					</div>
@@ -107,8 +132,9 @@
 						<h6>Follow Us</h6>
 						<p>Let us be social</p>
 						<div class="footer-social d-flex align-items-center">
-							<a href="#"><i class="ti-facebook"></i></a>
-							<a href="#"><i class="ti-twitter"></i></a>
+							<a href="https://www.facebook.com/roozbeh.mahmoodzadeh" target=”_blank”><i class="ti-facebook"></i></a>
+							<a href="https://twitter.com/roozbehrm" target=”_blank”><i class="ti-twitter"></i></a>
+							<a href="https://www.instagram.com/roozbehrm/" target=”_blank”><i class="ti-instagram"></i></a>
 							<a href="#"><i class="ti-dribbble"></i></a>
 							<a href="#"><i class="ti-linkedin"></i></a>
 						</div>
@@ -133,10 +159,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		</a>
 	</div>
 	<!-- ####################### End Scroll to Top Area ####################### -->
-
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+	{% compress js %}
 	<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
 	<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
 	<script src="{% static 'js/easing.min.js' %}"></script>
 	<script src="{% static 'js/hoverIntent.js' %}"></script>
 	<script src="{% static 'js/superfish.min.js' %}"></script>
@@ -149,6 +175,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{% static 'js/mail-script.js' %}"></script>
 	<script src="{% static 'js/wow.min.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		var message_ele = document.getElementById("message_container");
+
+		setTimeout(function(){ 
+   		message_ele.style.display = "none"; 
+		}, 6000);
+	</script>
+	{% endcompress %}
 </body>
 
 </html>

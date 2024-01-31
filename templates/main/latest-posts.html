@@ -1,0 +1,78 @@
+{% load static %}
+{% load humanize %}
+<section class="blog-area section-gap-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title text-center">
+                    <h3>Our Blog</h3>
+                    <h2><span>Latest</span> Good Story</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                {% if posts %}
+                {% with posts|first as last_post %}
+                <div class="single-recent-blog mb-lg-3 mb-5">
+                    <div class="thumb">
+                        <a href="{% url 'blog:single' pid=last_post.id %}"><img class="f-img img-fluid mx-auto" src="{{last_post.image.url}}" alt="{{last_post.title}}"></a>
+                    </div>
+                    <a href="{% url 'blog:single' pid=last_post.id %}">
+                        <h4 class="mt-4 mb-3">{{last_post.title}}</h4>
+                    </a>
+                    <div class="mb-3 bottom d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="meta">
+                            <span class="ti-user mr-1"></span> {{last_post.author}}
+                            <span class="ti-calendar mr-1"></span> {{last_post.published_date|naturaltime}}
+                        </div>
+                    </div>
+                    <p>
+                        {{last_post.content|safe|truncatechars:40}}
+                    </p>
+                </div>
+                {% endwith %}
+
+            </div> 
+            <div class="col-lg-6">
+                {% for post in posts|slice:"1:" %}
+                <div class="single-recent-blog mb-lg-3 mb-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-5">
+                            <div class="thumb">
+                                <a href="{% url 'blog:single' pid=post.id %}"><img class="f-img img-fluid mx-auto" src="{{post.image.url}}" alt="{{post.title}}"></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mt-md-0 mt-3">
+                            <a href="{% url 'blog:single' pid=post.id %}">
+                                <h4 class="mb-lg-3 mb-2">
+                                    {{post.title}}
+                                    {% if post.login_required %}
+                                    {% if not loggedin %}
+                                    <i class="ti-lock text-red"></i>
+                                    {% else %}
+                                    <i class="ti-unlock"></i>
+                                    {% endif %}
+                                    {% endif %}
+
+                                </h4>
+                            </a>
+                            <div class="bottom d-flex justify-content-between align-items-center flex-wrap mb-3">
+                                <div class="meta">
+                                    <span class="ti-user mr-1"></span> {{post.author.get_full_name}}
+                                    <span class="ti-calendar mr-1"></span> {{post.published_date|naturaltime}}
+                                </div>
+                            </div>
+                            <p>
+                                {{post.content|safe|truncatechars:50}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
